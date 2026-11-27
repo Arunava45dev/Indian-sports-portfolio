@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=venom&color=0:0F0C29,45:302B63,100:FF512F&height=280&section=header&text=PODIUM&fontSize=96&fontColor=ffffff&animation=twinkling&fontAlignY=38&desc=Where%20Champions%20Come%20Alive%20in%203D&descSize=24&descAlignY=62" alt="Podium" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F0C29,45:302B63,100:FF512F&height=260&section=header&text=PODIUM&fontSize=96&fontColor=ffffff&animation=twinkling&fontAlignY=38&desc=Where%20Champions%20Come%20Alive%20in%203D&descSize=24&descAlignY=62" alt="Podium" width="100%"/>
 
 <a href="https://git.io/typing-svg">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=21&duration=3000&pause=900&color=F472B6&center=true&vCenter=true&width=720&lines=Discover+athletes+straight+from+Wikipedia;Follow+live+matches+and+scorecards;Results+auto-refresh+every+90+seconds;Flask+%2B+React+%2B+MongoDB%2C+built+to+shine" alt="Typing animation"/>
@@ -285,6 +285,6 @@ npm run build
 
 ### 🌟 Enjoying Podium? Drop a star and share it!
 
-<img src="https://capsule-render.vercel.app/api?type=venom&color=0:FF512F,45:302B63,100:0F0C29&height=140&section=footer&text=Built%20with%20passion%20for%20sport&fontSize=22&fontColor=ffffff&fontAlignY=70" alt="footer" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF512F,45:302B63,100:0F0C29&height=140&section=footer&text=Built%20with%20passion%20for%20sport&fontSize=22&fontColor=ffffff&fontAlignY=70" alt="footer" width="100%"/>
 
 </div>
