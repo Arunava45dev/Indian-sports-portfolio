@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="Podium - 3D sports portfolio" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=venom&color=0:0F0C29,45:302B63,100:FF512F&height=280&section=header&text=PODIUM&fontSize=96&fontColor=ffffff&animation=twinkling&fontAlignY=38&desc=Where%20Champions%20Come%20Alive%20in%203D&descSize=24&descAlignY=62" alt="Podium" width="100%"/>
 
 <a href="https://git.io/typing-svg">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=21&duration=3000&pause=900&color=F472B6&center=true&vCenter=true&width=720&lines=Discover+athletes+straight+from+Wikipedia;Follow+live+matches+and+scorecards;Results+auto-refresh+every+90+seconds;Flask+%2B+React+%2B+MongoDB%2C+built+to+shine" alt="Typing animation"/>
@@ -27,7 +27,7 @@
 
 </div>
 
-<img src="assets/divider.svg" width="100%" alt=""/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:7C3AED,50:EC4899,100:F97316&height=4" width="100%" alt=""/>
 
 ## 🎯 About
 
@@ -36,13 +36,48 @@
 > [!NOTE]
 > The sports list lives in MongoDB. Athlete search uses English Wikipedia, so results depend on Wikipedia coverage and backend internet access. Opening a result loads its photo (when available), article summary, infobox stats and career/achievement sections, and every profile links back to its source article.
 
-<img src="assets/divider.svg" width="100%" alt=""/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:7C3AED,50:EC4899,100:F97316&height=4" width="100%" alt=""/>
 
 ## ✨ Features
 
-<img src="assets/features.svg" width="100%" alt="Podium features"/>
+<table>
+<tr>
+<td width="33%" align="center" valign="top">
+<h3>🏅</h3>
+<img src="https://img.shields.io/badge/Athlete_Profiles-A78BFA?style=for-the-badge&labelColor=0B0617" alt="Athlete Profiles"/>
+<p>Photo, summary, infobox stats, career and achievement sections</p>
+</td>
+<td width="33%" align="center" valign="top">
+<h3>🔎</h3>
+<img src="https://img.shields.io/badge/Wikipedia_Search-F472B6?style=for-the-badge&labelColor=0B0617" alt="Wikipedia Search"/>
+<p>Find Indian sportspeople straight from English Wikipedia</p>
+</td>
+<td width="33%" align="center" valign="top">
+<h3>⚽</h3>
+<img src="https://img.shields.io/badge/Match_Center-FB923C?style=for-the-badge&labelColor=0B0617" alt="Match Center"/>
+<p>Upcoming, live and completed fixtures with lineups and timelines</p>
+</td>
+</tr>
+<tr>
+<td width="33%" align="center" valign="top">
+<h3>⚡</h3>
+<img src="https://img.shields.io/badge/Live_Refresh-22D3EE?style=for-the-badge&labelColor=0B0617" alt="Live Refresh"/>
+<p>Fixtures and results update automatically every 90 seconds</p>
+</td>
+<td width="33%" align="center" valign="top">
+<h3>🧩</h3>
+<img src="https://img.shields.io/badge/Flexible_Scoreboards-34D399?style=for-the-badge&labelColor=0B0617" alt="Flexible Scoreboards"/>
+<p>One schema for cricket, football, tennis and more</p>
+</td>
+<td width="33%" align="center" valign="top">
+<h3>🔐</h3>
+<img src="https://img.shields.io/badge/Admin_Tools-60A5FA?style=for-the-badge&labelColor=0B0617" alt="Admin Tools"/>
+<p>Manage athletes and matches with a secure admin token</p>
+</td>
+</tr>
+</table>
 
-<img src="assets/divider.svg" width="100%" alt=""/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:7C3AED,50:EC4899,100:F97316&height=4" width="100%" alt=""/>
 
 ## 🧱 Architecture
 
@@ -57,7 +92,7 @@ flowchart LR
     A([🛡️ Admin]) -->|X-Admin-Token| B
 ```
 
-<img src="assets/divider.svg" width="100%" alt=""/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:7C3AED,50:EC4899,100:F97316&height=4" width="100%" alt=""/>
 
 ## 🚀 Quick Start
 
@@ -110,7 +145,7 @@ Open the local URL Vite prints in your terminal
 | `CORS_ORIGINS` | 🐍 backend | Your frontend site URL |
 | `VITE_API_URL` | ⚛️ frontend | URL of the deployed API |
 
-<img src="assets/divider.svg" width="100%" alt=""/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:7C3AED,50:EC4899,100:F97316&height=4" width="100%" alt=""/>
 
 ## ⚽ Match Center
 
@@ -158,7 +193,7 @@ Match records live in the `matches` collection. Use the **Schedule manager** on 
 > [!TIP]
 > Set `SPORTSDB_API_KEY` in `backend/.env` to use your own key. Premium keys unlock broader schedules and the provider's live-score API.
 
-<img src="assets/divider.svg" width="100%" alt=""/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:7C3AED,50:EC4899,100:F97316&height=4" width="100%" alt=""/>
 
 ## 🔌 API Reference
 
@@ -187,7 +222,7 @@ GET /api/matches?q=India%20vs%20Sri%20Lanka
 GET /api/matches?date=YYYY-MM-DD&status=live&sport=Cricket
 ```
 
-<img src="assets/divider.svg" width="100%" alt=""/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:7C3AED,50:EC4899,100:F97316&height=4" width="100%" alt=""/>
 
 ## 🔐 Admin Guide
 
@@ -211,7 +246,7 @@ python reset_database.py
 > [!CAUTION]
 > This **drops every collection** in `MONGODB_DB` before recreating the sports, an empty athlete collection and an empty contact-message collection. It cannot be undone.
 
-<img src="assets/divider.svg" width="100%" alt=""/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:7C3AED,50:EC4899,100:F97316&height=4" width="100%" alt=""/>
 
 ## 🌍 Deploy
 
@@ -246,4 +281,10 @@ npm run build
 </tr>
 </table>
 
-<img src="assets/footer.svg" width="100%" alt="Built with passion for sport"/>
+<div align="center">
+
+### 🌟 Enjoying Podium? Drop a star and share it!
+
+<img src="https://capsule-render.vercel.app/api?type=venom&color=0:FF512F,45:302B63,100:0F0C29&height=140&section=footer&text=Built%20with%20passion%20for%20sport&fontSize=22&fontColor=ffffff&fontAlignY=70" alt="footer" width="100%"/>
+
+</div>
