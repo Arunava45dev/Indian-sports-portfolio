@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="680" viewBox="0 0 1440 680" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="80" y1="0" x2="1390" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#071321"/><stop offset=".52" stop-color="#101B36"/><stop offset="1" stop-color="#07111D"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="matrix(380 260 -420 610 1030 310)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#19D3C5" stop-opacity=".3"/><stop offset="1" stop-color="#19D3C5" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tier" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#304465"/><stop offset="1" stop-color="#121D35"/></linearGradient>
+    <linearGradient id="field" x1="790" y1="310" x2="1120" y2="542" gradientUnits="userSpaceOnUse"><stop stop-color="#B4FF75"/><stop offset="1" stop-color="#19BFA6"/></linearGradient>
+    <linearGradient id="ball" x1="995" y1="118" x2="1150" y2="278" gradientUnits="userSpaceOnUse"><stop stop-color="#FFF"/><stop offset=".55" stop-color="#D9F6F4"/><stop offset="1" stop-color="#70B7C5"/></linearGradient>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="24"/></filter>
+    <filter id="shadow" x="780" y="91" width="440" height="415" filterUnits="userSpaceOnUse"><feGaussianBlur in="SourceAlpha" stdDeviation="20"/><feOffset dy="18"/><feComponentTransfer><feFuncA type="linear" slope=".55"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="seats" width="24" height="14" patternUnits="userSpaceOnUse"><path d="M2 5h5M13 10h7" stroke="#89A4C7" stroke-opacity=".45" stroke-width="2" stroke-linecap="round"/></pattern>
+  </defs>
+  <rect width="1440" height="680" rx="28" fill="url(#sky)"/>
+  <rect width="1440" height="680" rx="28" fill="url(#glow)"/>
+  <circle cx="1037" cy="345" r="200" fill="#29E0C5" fill-opacity=".12" filter="url(#blur)"/>
+  <path d="M0 541c218-63 442-65 661-9 233 60 511 80 779-1v149H0V541Z" fill="#080F1B" fill-opacity=".74"/>
+  <path d="m822 209 67 183-88 83-52-215 73-51Z" fill="#83FFF0" fill-opacity=".08"/>
+  <path d="m1236 173-95 231 80 89 95-254-80-66Z" fill="#B8FF79" fill-opacity=".1"/>
+
+  <!-- Layered 3D stadium bowl -->
+  <ellipse cx="1035" cy="441" rx="332" ry="139" fill="#070D18"/>
+  <path d="M708 390c0-87 146-158 326-158s326 71 326 158v54c0 87-146 158-326 158S708 531 708 444v-54Z" fill="#111B30" stroke="#4C6686" stroke-opacity=".65" stroke-width="2"/>
+  <path d="M727 388c0-74 137-135 307-135s307 61 307 135v43c0 74-137 135-307 135s-307-61-307-135v-43Z" fill="url(#tier)"/>
+  <path d="M727 388c0-74 137-135 307-135s307 61 307 135v43c0 74-137 135-307 135s-307-61-307-135v-43Z" fill="url(#seats)" opacity=".86"/>
+  <ellipse cx="1034" cy="390" rx="307" ry="135" fill="none" stroke="#4CE8D4" stroke-opacity=".75" stroke-width="4"/>
+  <ellipse cx="1034" cy="398" rx="276" ry="113" fill="none" stroke="#97FF7B" stroke-opacity=".8" stroke-width="3"/>
+  <ellipse cx="1034" cy="409" rx="242" ry="91" fill="#0A493F" stroke="#B7FF75" stroke-opacity=".6" stroke-width="2"/>
+  <path d="M792 409c0-50 108-91 242-91s242 41 242 91v19c0 50-108 91-242 91s-242-41-242-91v-19Z" fill="url(#field)"/>
+  <path d="M792 409c0-50 108-91 242-91s242 41 242 91v19c0 50-108 91-242 91s-242-41-242-91v-19Z" fill="#092E35" fill-opacity=".22" stroke="#D7FFAA" stroke-opacity=".7" stroke-width="2"/>
+  <path d="M794 418c78-44 158-62 240-62s163 18 241 62M795 442c80 45 159 64 239 64s159-19 239-64M1034 319v181" stroke="#E0FFBD" stroke-opacity=".64" stroke-width="2"/>
+  <ellipse cx="1034" cy="410" rx="52" ry="20" stroke="#E0FFBD" stroke-opacity=".72" stroke-width="2"/>
+  <path d="M733 390v49m22-66v81m22-97v113m515-80v49m-22-66v81m-22-97v113" stroke="#6EEADD" stroke-opacity=".8" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Floating 3D football -->
+  <ellipse cx="1075" cy="292" rx="94" ry="22" fill="#31E4CF" fill-opacity=".38" filter="url(#blur)"/>
+  <g filter="url(#shadow)" transform="rotate(-17 1075 205)">
+    <circle cx="1075" cy="205" r="81" fill="url(#ball)" stroke="#E8FFFF" stroke-width="3"/>
+    <path d="m1075 167 24 17-9 29h-30l-9-29 24-17Zm-51 3 17 1 10 13-9 29-24 4-15-21 8-19 13-7Zm103 0-17 1-10 13 9 29 24 4 15-21-8-19-13-7Zm-103 68 18 4 13 24-9 15-23-7-13-16 14-20Zm103 0-18 4-13 24 9 15 23-7 13-16-14-20Zm-52-25h30l17 25-13 24h-34l-13-24 13-25Z" fill="#12233C"/>
+    <path d="M1018 144c28-24 77-30 112-5M1010 248c30 31 86 39 126 12" stroke="#FFF" stroke-opacity=".75" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Title block -->
+  <path d="M90 92h42" stroke="#A9FF72" stroke-width="5" stroke-linecap="round"/>
+  <text x="90" y="145" fill="#C3FF89" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="700" letter-spacing="5">THE 3D SPORTS EXPERIENCE</text>
+  <text x="82" y="260" fill="#F5FAFF" font-family="Arial,Helvetica,sans-serif" font-size="104" font-weight="900" letter-spacing="-5">PODIUM</text>
+  <text x="92" y="318" fill="#A9C4D7" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="500" letter-spacing="1">ATHLETES. MATCH DAYS. MOMENTS.</text>
+  <text x="92" y="371" fill="#E2EDF5" font-family="Arial,Helvetica,sans-serif" font-size="19">A living arena for Indian sport.</text>
+  <g transform="translate(92 432)">
+    <rect width="130" height="40" rx="20" fill="#143A3C" stroke="#35DCC8" stroke-opacity=".7"/>
+    <circle cx="20" cy="20" r="5" fill="#78FF9F"/>
+    <text x="35" y="26" fill="#E7FFF8" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" letter-spacing="1">ATHLETES</text>
+    <rect x="145" width="118" height="40" rx="20" fill="#23304B" stroke="#8494FF" stroke-opacity=".8"/>
+    <circle cx="165" cy="20" r="5" fill="#A9B3FF"/>
+    <text x="180" y="26" fill="#F0F0FF" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" letter-spacing="1">MATCHES</text>
+    <rect x="278" width="110" height="40" rx="20" fill="#26391E" stroke="#B5F56E" stroke-opacity=".8"/>
+    <circle cx="298" cy="20" r="5" fill="#C4FF72"/>
+    <text x="313" y="26" fill="#F4FFE8" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" letter-spacing="1">IN 3D</text>
+  </g>
+  <text x="92" y="610" fill="#71839B" font-family="Arial,Helvetica,sans-serif" font-size="14" letter-spacing="2">FLASK  /  REACT  /  THREE.JS  /  MONGODB</text>
+</svg>
