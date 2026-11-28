@@ -1,42 +1,87 @@
-# Podium
+<div align="center">
 
-Podium is a sports portfolio for exploring Indian athlete profiles and match
-fixtures. It uses a React and Vite frontend, a Flask API, and MongoDB. Athlete
-search uses English Wikipedia; automatic fixtures and results use TheSportsDB
-and selected published BCCI schedules.
+<img src="https://capsule-render.vercel.app/api?type=rounded&color=0:07111F,45:0F766E,100:34D399&height=230&section=header&text=PODIUM&fontSize=88&fontColor=F8FAFC&fontAlignY=42&desc=SPORTS%20STORIES.%20BUILT%20TO%20MOVE.&descSize=18&descAlignY=68" alt="Podium — sports stories built to move" width="100%" />
 
-## Features
+<br />
 
-- Athlete directory with sport filters, search, and profile pages.
-- Match center for upcoming, live, and completed fixtures.
-- Admin forms for managing athlete and match records.
-- Contact form and optional AI Scout endpoint.
-- Interactive 3D scene on the home page.
+### Discover athletes. Follow the game. Feel the moment.
 
-## Architecture
+An interactive sports portfolio for Indian athletes, match days, and the stories behind every performance.
+
+<br />
+
+<img src="https://img.shields.io/badge/React-18-111827?logo=react&logoColor=61DAFB" alt="React 18" />
+<img src="https://img.shields.io/badge/Flask-REST_API-111827?logo=flask&logoColor=white" alt="Flask REST API" />
+<img src="https://img.shields.io/badge/Three.js-3D-111827?logo=threedotjs&logoColor=white" alt="Three.js" />
+<img src="https://img.shields.io/badge/MongoDB-Data-111827?logo=mongodb&logoColor=47A248" alt="MongoDB" />
+<img src="https://img.shields.io/badge/Vite-Frontend-111827?logo=vite&logoColor=646CFF" alt="Vite" />
+
+<br /><br />
+
+[Quick start](#-quick-start) · [Features](#-the-podium-experience) · [API](#-api-at-a-glance) · [Tests](#-quality-checks) · [Deploy](#-deployment)
+
+</div>
+
+---
+
+## The Podium experience
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🏅 Athlete profiles
+Explore Indian athletes with biographies, stats, achievements, and source links.
+
+### 🔎 Wikipedia search
+Search English Wikipedia for Indian sportspeople and open the profiles you find.
+
+### 🏟️ Match center
+Browse upcoming, live, and completed fixtures, with scorecards and lineups when available.
+
+</td>
+<td width="50%" valign="top">
+
+### 🪐 A little 3D magic
+An interactive Three.js scene gives the home page its own orbit.
+
+### ✍️ Admin tools
+Manage athlete and match records through token-protected endpoints.
+
+### 💬 AI Scout
+Ask profile-based questions when a Groq API key is configured.
+
+</td>
+</tr>
+</table>
+
+> Match and athlete details come from external providers. Coverage, lineups, and live updates depend on provider availability.
+
+## Under the hood
 
 ```mermaid
 flowchart LR
-    Browser[React and Vite] -->|REST /api| API[Flask API]
-    API --> Mongo[(MongoDB)]
-    API --> Wiki[English Wikipedia]
-    API --> Sports[TheSportsDB and BCCI schedule]
+    V[Visitor] --> UI[React + Vite]
+    UI -->|REST /api| API[Flask API]
+    API --> DB[(MongoDB)]
+    API --> W[English Wikipedia]
+    API --> S[TheSportsDB + BCCI schedule]
+    A[Admin] -->|X-Admin-Token| API
 ```
 
-## Requirements
+## 🚀 Quick start
+
+### You will need
 
 - Python 3.10 or newer
-- Node.js 20 or newer and npm
-- MongoDB connection string (Atlas or a local MongoDB server)
+- Node.js 20 or newer with npm
+- A MongoDB connection string
 
-## Local setup
+### 1 · Start the API
 
-### 1. Configure the backend
+Create `backend/.env` from `backend/.env.example`. Set `MONGODB_URI` to your MongoDB connection string and replace the sample `ADMIN_TOKEN` with a private value.
 
-Create `backend/.env` from the example and set a real MongoDB connection string
-and a long, private admin token. Do not commit `.env`.
-
-Windows PowerShell:
+**Windows PowerShell**
 
 ```powershell
 cd backend
@@ -47,7 +92,7 @@ python -m pip install -r requirements.txt
 python app.py
 ```
 
-macOS/Linux:
+**macOS / Linux**
 
 ```sh
 cd backend
@@ -58,12 +103,11 @@ python -m pip install -r requirements.txt
 python app.py
 ```
 
-The API runs at `http://localhost:5000`. The sample `MONGODB_URI` is a
-placeholder; replace it before starting the backend.
+The API starts at `http://localhost:5000`. The sample MongoDB URI is only a placeholder.
 
-### 2. Start the frontend
+### 2 · Start the web app
 
-In a second terminal:
+Open a second terminal:
 
 ```sh
 cd frontend
@@ -71,30 +115,55 @@ npm ci
 npm run dev
 ```
 
-Open the local URL printed by Vite (usually `http://localhost:5173`). During
-development, Vite proxies `/api` requests to `http://localhost:5000`.
+Open the URL Vite prints (usually `http://localhost:5173`). During development, Vite forwards `/api` requests to the local Flask server.
 
-## Environment variables
+## ⚙️ Configuration
 
-| Variable | Required | Purpose |
-| --- | --- | --- |
-| `MONGODB_URI` | Yes | MongoDB connection string. |
-| `MONGODB_DB` | No | Database name; defaults to `sports_portfolio`. |
-| `ADMIN_TOKEN` | Yes for admin features | Private token used by admin API requests. |
-| `CORS_ORIGINS` | No | Comma-separated trusted frontend origins; defaults to `http://localhost:5173`. |
-| `SPORTSDB_API_KEY` | No | TheSportsDB API key; the public key `123` is used by default. |
-| `GROQ_API_KEY` | No | Enables the AI Scout endpoint when configured. |
-| `GROQ_MODEL` | No | Groq model name used by AI Scout. |
-| `VITE_API_URL` | For separate frontend hosting | Base URL of the deployed API, without `/api`. Do not put secrets here. |
+| Variable | What it controls |
+| --- | --- |
+| `MONGODB_URI` | MongoDB connection string. Set this before starting the backend. |
+| `MONGODB_DB` | Database name; defaults to `sports_portfolio`. |
+| `ADMIN_TOKEN` | Private token for athlete and match admin endpoints. |
+| `CORS_ORIGINS` | Comma-separated allowed frontend origins. |
+| `SPORTSDB_API_KEY` | TheSportsDB key; defaults to the public key `123`. |
+| `GROQ_API_KEY` | Optional key that enables AI Scout. |
+| `GROQ_MODEL` | Optional model name for AI Scout. |
+| `VITE_API_URL` | API origin for a separately hosted frontend. Do not put secrets here. |
 
-The backend reads its environment from `backend/.env` for local development.
-In production, configure these values in the hosting provider's environment
-settings.
+For local development, backend values belong in `backend/.env`. In production, set them in your hosting provider's environment settings. Never commit `.env` files or expose private keys to the frontend.
 
-## Tests and CI
+## 🔌 API at a glance
 
-Backend tests use an in-memory MongoDB mock and do not require a running MongoDB
-server or external data providers:
+All routes begin with `/api`. Admin routes require the `X-Admin-Token` header.
+
+| Method | Route | What it does |
+| :---: | --- | --- |
+| `GET` | `/health` | Check API and database connectivity. |
+| `GET` | `/sports` | List available sports. |
+| `GET` | `/athletes?sport=&q=&featured=true` | Browse athletes and search by name. |
+| `GET` | `/athletes/<slug-or-id>` | Open a saved athlete profile. |
+| `POST` `PUT` `DELETE` | `/athletes` or `/athletes/<id>` | Manage athlete records (admin). |
+| `GET` | `/matches?date=&status=&sport=&q=` | Browse and filter matches. |
+| `GET` | `/matches/<id>` | Open match details. |
+| `POST` `PUT` `DELETE` | `/matches` or `/matches/<id>` | Manage match records (admin). |
+| `POST` | `/contact` | Submit a contact message. |
+| `POST` | `/ai/scout` | Ask about supplied athlete profile facts. |
+
+Example match query:
+
+```http
+GET /api/matches?date=2026-11-28&status=live&sport=Cricket
+```
+
+Example API error response:
+
+```json
+{ "error": "Match not found." }
+```
+
+## 🧪 Quality checks
+
+Backend tests use an in-memory MongoDB mock, so no Atlas account or running database is needed:
 
 ```sh
 cd backend
@@ -112,52 +181,13 @@ npm test
 npm run build
 ```
 
-GitHub Actions runs backend lint and tests, frontend tests and build, dependency
-review on pull requests, and secret scanning. Deployment is not automated.
+GitHub Actions runs backend lint and tests, frontend tests and build, plus pull request dependency review and secret scanning. Deployment is not automated.
 
-## API reference
+## 🏏 Match data
 
-All endpoints are prefixed with `/api`. Admin endpoints require the
-`X-Admin-Token` request header.
+Podium combines saved match records with automatic provider data. The free TheSportsDB key has limited daily coverage; lineups and live scores appear only when the provider supplies them. A published India–Sri Lanka 2026 schedule is also included. Provider data can be delayed or unavailable.
 
-| Method | Endpoint | Purpose |
-| --- | --- | --- |
-| `GET` | `/api/health` | API and database health check. |
-| `GET` | `/api/sports` | List sports in the catalog. |
-| `GET` | `/api/athletes?sport=&q=&featured=true` | List saved athletes and search Wikipedia for matching names. |
-| `GET` | `/api/athletes/<slug-or-id>` | Get an athlete profile. `wikipedia-<title>` loads a Wikipedia profile. |
-| `POST` | `/api/athletes` | Create an athlete (admin). |
-| `PUT` | `/api/athletes/<slug-or-id>` | Update an athlete (admin). |
-| `DELETE` | `/api/athletes/<slug-or-id>` | Delete an athlete (admin). |
-| `GET` | `/api/matches?date=&status=&sport=&q=` | List and filter fixtures. |
-| `GET` | `/api/matches/<id>` | Get a saved or supported provider match. |
-| `POST` | `/api/matches` | Create a match (admin). |
-| `PUT` | `/api/matches/<id>` | Update a match (admin). |
-| `DELETE` | `/api/matches/<id>` | Delete a match (admin). |
-| `POST` | `/api/contact` | Submit `{ "name", "email", "message" }`. |
-| `POST` | `/api/ai/scout` | Ask about a supplied athlete profile (requires `GROQ_API_KEY`). |
-
-Example successful create response:
-
-```json
-{ "id": "..." }
-```
-
-Example error response:
-
-```json
-{ "error": "Athlete not found." }
-```
-
-## Match data and limitations
-
-The match center combines saved operator entries with provider data. The free
-TheSportsDB key has limited daily coverage; lineups and live scores depend on
-provider availability. A published India-Sri Lanka 2026 schedule is also
-included. Search results and profile details depend on Wikipedia's coverage and
-backend internet access. Provider data may be delayed or unavailable.
-
-Match records use ISO 8601 timestamps in `starts_at`, for example:
+Saved matches use ISO 8601 timestamps in `starts_at`:
 
 ```json
 {
@@ -172,28 +202,35 @@ Match records use ISO 8601 timestamps in `starts_at`, for example:
 }
 ```
 
-## Database setup and reset
+Athlete search and biographies use English Wikipedia. Results depend on Wikipedia coverage and backend internet access. Profiles link to their source article.
 
-The application creates indexes when it receives its first request. To seed the
-sports catalog in a new database, run `python reset_database.py` from `backend/`
-after setting `MONGODB_URI` and `MONGODB_DB`.
+## 🌍 Deployment
 
-**This reset script drops every collection in the configured database.** Use a
-disposable development database only; do not run it against production or any
-database containing data you need. Back up important data before any manual
-database changes.
-
-## Deployment
-
-For the backend, set the production environment variables in the hosting
-provider and start Gunicorn from the `backend/` directory:
+**Backend:** configure production environment variables and start Gunicorn from the `backend/` directory:
 
 ```sh
 gunicorn app:app
 ```
 
-For the frontend, run `npm run build` from `frontend/` and host the generated
-`dist/` directory. Set `VITE_API_URL` to the API origin and configure the
-backend's `CORS_ORIGINS` to include the frontend origin. Configure SPA fallback
-routing in the frontend host so direct visits to client-side routes serve
-`index.html`.
+**Frontend:** build from `frontend/`, host `dist/`, and set `VITE_API_URL` to the API origin. Set backend `CORS_ORIGINS` to the frontend origin and configure the host's SPA fallback so direct route visits serve `index.html`.
+
+## 🗄️ Database reset
+
+To seed the sports catalog in a new development database, run from `backend/` after configuring `MONGODB_URI` and `MONGODB_DB`:
+
+```sh
+python reset_database.py
+```
+
+> [!CAUTION]
+> The reset script drops **every collection** in the configured database. Use a disposable development database only. Never run it against production or a database containing data you need.
+
+<div align="center">
+
+<br />
+
+**Made for the moments that move sport forward.**
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:34D399,50:0F766E,100:07111F&height=90&section=footer" alt="" width="100%" />
+
+</div>
