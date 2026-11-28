@@ -1,4 +1,3 @@
-import os
 import re
 import threading
 import time
@@ -6,24 +5,24 @@ from datetime import datetime, timedelta, timezone
 
 from bson import ObjectId
 from bson.errors import InvalidId
-from dotenv import load_dotenv
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from pymongo import ASCENDING, MongoClient
+from pymongo import ASCENDING
 from pymongo.errors import DuplicateKeyError, OperationFailure, PyMongoError
 import requests
 from urllib.parse import unquote, urlparse
 
-load_dotenv()
+from config import Config
+from database import connect
 
 from wikipedia_service import get_indian_player, get_medal_counts, search_indian_players, SPORT_LABELS
 from sports_feed import events_for_day, get_event, get_official_match, live_scores, official_india_cricket_fixtures, official_india_sri_lanka_fixtures, search_events
 
 app = Flask(__name__)
-CORS(app, origins=os.getenv("CORS_ORIGINS", "http://localhost:5173").split(","))
+app.config.from_object(Config)
+CORS(app, origins=app.config["CORS_ORIGINS"])
 
-client = MongoClient(os.environ["MONGODB_URI"], serverSelectionTimeoutMS=5000)
-db = client[os.getenv("MONGODB_DB", "sports_portfolio")]
+client, db = connect(app.config["MONGODB_URI"], app.config["MONGODB_DB"])
 athletes = db["athletes"]
 messages = db["messages"]
 sports = db["sports"]
@@ -63,10 +62,10 @@ def invalidate_athlete_list_cache():
     with _athlete_list_cache_lock:
         _athlete_list_cache.clear()
 
-ADMIN_TOKEN = os.getenv("ADMIN_TOKEN", "")
+ADMIN_TOKEN = app.config["ADMIN_TOKEN"]
 EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
-GROQ_API_KEY = os.getenv("GROQ_API_KEY", "").strip()
-GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b").strip()
+GROQ_API_KEY = app.config["GROQ_API_KEY"]
+GROQ_MODEL = app.config["GROQ_MODEL"]
 ALLOWED = {
     "name", "slug", "sport", "position", "country", "tagline", "bio",
     "image_url", "featured", "stats", "medals", "achievements", "highlights",

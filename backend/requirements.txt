@@ -4,3 +4,6 @@ pymongo[srv]==4.8.0
 python-dotenv==1.0.1
 requests==2.32.3
 gunicorn==23.0.0
+pytest==8.3.3
+mongomock==4.1.2
+ruff==0.7.1

@@ -1,164 +1,163 @@
-<div align="center">
+# Podium
 
-<img src="https://capsule-render.vercel.app/api?type=rounded&color=0:020617,40:0F766E,75:10B981,100:A3E635&height=270&section=header&text=PODIUM&fontSize=100&fontColor=ffffff&fontAlign=50&fontAlignY=40&animation=fadeIn&stroke=22D3EE&strokeWidth=2&desc=Where%20Champions%20Come%20Alive%20in%203D&descSize=24&descAlign=50&descAlignY=66" alt="Podium" width="100%"/>
+Podium is a sports portfolio for exploring Indian athlete profiles and match
+fixtures. It uses a React and Vite frontend, a Flask API, and MongoDB. Athlete
+search uses English Wikipedia; automatic fixtures and results use TheSportsDB
+and selected published BCCI schedules.
 
-<a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=21&duration=3000&pause=900&color=34D399&center=true&vCenter=true&width=720&lines=Discover+athletes+straight+from+Wikipedia;Follow+live+matches+and+scorecards;Results+auto-refresh+every+90+seconds;Flask+%2B+React+%2B+MongoDB%2C+built+to+shine" alt="Typing animation"/>
-</a>
+## Features
 
-<br/><br/>
+- Athlete directory with sport filters, search, and profile pages.
+- Match center for upcoming, live, and completed fixtures.
+- Admin forms for managing athlete and match records.
+- Contact form and optional AI Scout endpoint.
+- Interactive 3D scene on the home page.
 
-<img src="https://skillicons.dev/icons?i=python,flask,react,vite,mongodb,threejs,js,git,github&theme=dark" alt="Tech stack"/>
-
-<br/><br/>
-
-<a href="#-quick-start"><img src="https://img.shields.io/badge/%F0%9F%9A%80_Quick_Start-06B6D4?style=for-the-badge&labelColor=020617" alt="Quick Start"/></a>
-<a href="#-features"><img src="https://img.shields.io/badge/%E2%9C%A8_Features-10B981?style=for-the-badge&labelColor=020617" alt="Features"/></a>
-<a href="#-api-reference"><img src="https://img.shields.io/badge/%F0%9F%94%8C_API-A3E635?style=for-the-badge&labelColor=020617" alt="API"/></a>
-<a href="#-deploy"><img src="https://img.shields.io/badge/%F0%9F%8C%8D_Deploy-38BDF8?style=for-the-badge&labelColor=020617" alt="Deploy"/></a>
-
-<br/>
-
-<img src="https://img.shields.io/badge/status-active-00E676?style=flat-square&labelColor=020617" alt="Status"/>
-<img src="https://img.shields.io/badge/API-REST-67E8F9?style=flat-square&labelColor=020617" alt="REST"/>
-<img src="https://img.shields.io/badge/data-Wikipedia_%2B_TheSportsDB-34D399?style=flat-square&labelColor=020617" alt="Data"/>
-<img src="https://img.shields.io/badge/refresh-90s-BEF264?style=flat-square&labelColor=020617" alt="Refresh"/>
-<img src="https://img.shields.io/badge/PRs-welcome-38BDF8?style=flat-square&labelColor=020617" alt="PRs welcome"/>
-
-</div>
-
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:22D3EE,50:10B981,100:A3E635&height=4" width="100%" alt=""/>
-
-## 🎯 About
-
-**Podium** is a 3D sports portfolio where visitors explore athlete profiles, search Wikipedia for Indian sportspeople, and follow fixtures, live scores and results, all in one colourful place.
-
-> [!NOTE]
-> The sports list lives in MongoDB. Athlete search uses English Wikipedia, so results depend on Wikipedia coverage and backend internet access. Opening a result loads its photo (when available), article summary, infobox stats and career/achievement sections, and every profile links back to its source article.
-
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:22D3EE,50:10B981,100:A3E635&height=4" width="100%" alt=""/>
-
-## ✨ Features
-
-<table>
-<tr>
-<td width="33%" align="center" valign="top">
-<h3>🏅</h3>
-<img src="https://img.shields.io/badge/Athlete_Profiles-67E8F9?style=for-the-badge&labelColor=020617" alt="Athlete Profiles"/>
-<p>Photo, summary, infobox stats, career and achievement sections</p>
-</td>
-<td width="33%" align="center" valign="top">
-<h3>🔎</h3>
-<img src="https://img.shields.io/badge/Wikipedia_Search-34D399?style=for-the-badge&labelColor=020617" alt="Wikipedia Search"/>
-<p>Find Indian sportspeople straight from English Wikipedia</p>
-</td>
-<td width="33%" align="center" valign="top">
-<h3>⚽</h3>
-<img src="https://img.shields.io/badge/Match_Center-BEF264?style=for-the-badge&labelColor=020617" alt="Match Center"/>
-<p>Upcoming, live and completed fixtures with lineups and timelines</p>
-</td>
-</tr>
-<tr>
-<td width="33%" align="center" valign="top">
-<h3>⚡</h3>
-<img src="https://img.shields.io/badge/Live_Refresh-38BDF8?style=for-the-badge&labelColor=020617" alt="Live Refresh"/>
-<p>Fixtures and results update automatically every 90 seconds</p>
-</td>
-<td width="33%" align="center" valign="top">
-<h3>🧩</h3>
-<img src="https://img.shields.io/badge/Flexible_Scoreboards-34D399?style=for-the-badge&labelColor=020617" alt="Flexible Scoreboards"/>
-<p>One schema for cricket, football, tennis and more</p>
-</td>
-<td width="33%" align="center" valign="top">
-<h3>🔐</h3>
-<img src="https://img.shields.io/badge/Admin_Tools-60A5FA?style=for-the-badge&labelColor=020617" alt="Admin Tools"/>
-<p>Manage athletes and matches with a secure admin token</p>
-</td>
-</tr>
-</table>
-
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:22D3EE,50:10B981,100:A3E635&height=4" width="100%" alt=""/>
-
-## 🧱 Architecture
+## Architecture
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'primaryColor':'#0B2530','primaryTextColor':'#F5F3FF','primaryBorderColor':'#67E8F9','lineColor':'#34D399','secondaryColor':'#0F2F3A','tertiaryColor':'#020617'}}}%%
 flowchart LR
-    U([👤 Visitor]) --> F[⚛️ React + Vite<br/>Frontend]
-    F -->|REST /api| B[🐍 Flask API<br/>Gunicorn]
-    B --> D[(🍃 MongoDB<br/>athletes, sports, matches, contacts)]
-    B --> W[📖 Wikipedia<br/>athlete search]
-    B --> S[🏟️ TheSportsDB<br/>fixtures and results]
-    A([🛡️ Admin]) -->|X-Admin-Token| B
+    Browser[React and Vite] -->|REST /api| API[Flask API]
+    API --> Mongo[(MongoDB)]
+    API --> Wiki[English Wikipedia]
+    API --> Sports[TheSportsDB and BCCI schedule]
 ```
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:22D3EE,50:10B981,100:A3E635&height=4" width="100%" alt=""/>
+## Requirements
 
-## 🚀 Quick Start
+- Python 3.10 or newer
+- Node.js 20 or newer and npm
+- MongoDB connection string (Atlas or a local MongoDB server)
 
-<table>
-<tr>
-<td width="50%" valign="top">
+## Local setup
 
-### 🐍 Backend
+### 1. Configure the backend
 
-```bash
+Create `backend/.env` from the example and set a real MongoDB connection string
+and a long, private admin token. Do not commit `.env`.
+
+Windows PowerShell:
+
+```powershell
 cd backend
-python -m venv venv
-source venv/bin/activate
-# Windows: venv\Scripts\activate
-pip install -r requirements.txt
-cp .env.example .env
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+Copy-Item .env.example .env
+python -m pip install -r requirements.txt
 python app.py
 ```
 
-API runs on `http://localhost:5000`
+macOS/Linux:
 
-</td>
-<td width="50%" valign="top">
+```sh
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+cp .env.example .env
+python -m pip install -r requirements.txt
+python app.py
+```
 
-### ⚛️ Frontend
+The API runs at `http://localhost:5000`. The sample `MONGODB_URI` is a
+placeholder; replace it before starting the backend.
 
-```bash
+### 2. Start the frontend
+
+In a second terminal:
+
+```sh
 cd frontend
-npm install
+npm ci
 npm run dev
 ```
 
-Open the local URL Vite prints in your terminal
+Open the local URL printed by Vite (usually `http://localhost:5173`). During
+development, Vite proxies `/api` requests to `http://localhost:5000`.
 
-</td>
-</tr>
-</table>
+## Environment variables
 
-> [!TIP]
-> Folder names (`backend/`, `frontend/`) and `.env.example` should match your repo. Edit the commands if yours differ.
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `MONGODB_URI` | Yes | MongoDB connection string. |
+| `MONGODB_DB` | No | Database name; defaults to `sports_portfolio`. |
+| `ADMIN_TOKEN` | Yes for admin features | Private token used by admin API requests. |
+| `CORS_ORIGINS` | No | Comma-separated trusted frontend origins; defaults to `http://localhost:5173`. |
+| `SPORTSDB_API_KEY` | No | TheSportsDB API key; the public key `123` is used by default. |
+| `GROQ_API_KEY` | No | Enables the AI Scout endpoint when configured. |
+| `GROQ_MODEL` | No | Groq model name used by AI Scout. |
+| `VITE_API_URL` | For separate frontend hosting | Base URL of the deployed API, without `/api`. Do not put secrets here. |
 
-## 🔧 Environment Variables
+The backend reads its environment from `backend/.env` for local development.
+In production, configure these values in the hosting provider's environment
+settings.
 
-| Variable | Where | Purpose |
-|---|:-:|---|
-| `MONGODB_URI` | 🐍 backend | MongoDB connection string |
-| `MONGODB_DB` | 🐍 backend | Database name |
-| `ADMIN_TOKEN` | 🐍 backend | Secret for admin endpoints and the Schedule manager |
-| `SPORTSDB_API_KEY` | 🐍 backend | Your TheSportsDB key (optional, defaults to free key `123`) |
-| `CORS_ORIGINS` | 🐍 backend | Your frontend site URL |
-| `VITE_API_URL` | ⚛️ frontend | URL of the deployed API |
+## Tests and CI
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:22D3EE,50:10B981,100:A3E635&height=4" width="100%" alt=""/>
+Backend tests use an in-memory MongoDB mock and do not require a running MongoDB
+server or external data providers:
 
-## ⚽ Match Center
+```sh
+cd backend
+python -m pip install -r requirements.txt
+python -m ruff check .
+python -m pytest
+```
 
-The **Matches** page lists upcoming, live and completed fixtures. Each match can show:
+Frontend tests use Vitest and React Testing Library:
 
-| 👥 Lineups | 📍 Venue | 🔢 Score summary | 📊 Scorecard | ⏱️ Timeline |
-|:-:|:-:|:-:|:-:|:-:|
-| Team players | Where it's played | Quick result | Per-period breakdown | Key events |
+```sh
+cd frontend
+npm ci
+npm test
+npm run build
+```
 
-Match records live in the `matches` collection. Use the **Schedule manager** on the page to add or update a match (needs the configured `ADMIN_TOKEN`). Scoreboard fields are intentionally flexible so they fit different sports.
+GitHub Actions runs backend lint and tests, frontend tests and build, dependency
+review on pull requests, and secret scanning. Deployment is not automated.
 
-<details>
-<summary><b>📦 Example match record (click to expand)</b></summary>
+## API reference
+
+All endpoints are prefixed with `/api`. Admin endpoints require the
+`X-Admin-Token` request header.
+
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/health` | API and database health check. |
+| `GET` | `/api/sports` | List sports in the catalog. |
+| `GET` | `/api/athletes?sport=&q=&featured=true` | List saved athletes and search Wikipedia for matching names. |
+| `GET` | `/api/athletes/<slug-or-id>` | Get an athlete profile. `wikipedia-<title>` loads a Wikipedia profile. |
+| `POST` | `/api/athletes` | Create an athlete (admin). |
+| `PUT` | `/api/athletes/<slug-or-id>` | Update an athlete (admin). |
+| `DELETE` | `/api/athletes/<slug-or-id>` | Delete an athlete (admin). |
+| `GET` | `/api/matches?date=&status=&sport=&q=` | List and filter fixtures. |
+| `GET` | `/api/matches/<id>` | Get a saved or supported provider match. |
+| `POST` | `/api/matches` | Create a match (admin). |
+| `PUT` | `/api/matches/<id>` | Update a match (admin). |
+| `DELETE` | `/api/matches/<id>` | Delete a match (admin). |
+| `POST` | `/api/contact` | Submit `{ "name", "email", "message" }`. |
+| `POST` | `/api/ai/scout` | Ask about a supplied athlete profile (requires `GROQ_API_KEY`). |
+
+Example successful create response:
+
+```json
+{ "id": "..." }
+```
+
+Example error response:
+
+```json
+{ "error": "Athlete not found." }
+```
+
+## Match data and limitations
+
+The match center combines saved operator entries with provider data. The free
+TheSportsDB key has limited daily coverage; lineups and live scores depend on
+provider availability. A published India-Sri Lanka 2026 schedule is also
+included. Search results and profile details depend on Wikipedia's coverage and
+backend internet access. Provider data may be delayed or unavailable.
+
+Match records use ISO 8601 timestamps in `starts_at`, for example:
 
 ```json
 {
@@ -166,125 +165,35 @@ Match records live in the `matches` collection. Use the **Schedule manager** on 
   "competition": "Example Cup",
   "starts_at": "2026-11-18T14:00:00+05:30",
   "status": "completed",
-  "venue": "Mumbai",
-  "home": { "name": "India", "players": ["Player One", "Player Two"] },
-  "away": { "name": "Australia", "players": ["Player Three", "Player Four"] },
-  "score": {
-    "home": "182/6 (20 ov)",
-    "away": "176/9 (20 ov)",
-    "summary": "India won by 6 runs",
-    "periods": [{ "label": "Innings 1", "home": "182/6", "away": "176/9" }],
-    "events": [{ "time": "19.4 ov", "text": "Wicket" }]
-  },
+  "home": { "name": "India" },
+  "away": { "name": "Australia" },
+  "score": { "home": "182/6", "away": "176/9" },
   "result": "India won by 6 runs"
 }
 ```
 
-</details>
+## Database setup and reset
 
-### 📡 Data sources
+The application creates indexes when it receives its first request. To seed the
+sports catalog in a new database, run `python reset_database.py` from `backend/`
+after setting `MONGODB_URI` and `MONGODB_DB`.
 
-| Source | What it gives |
-|---|---|
-| 🌐 **TheSportsDB** | Automatic fixtures and results, refreshed every 90 seconds. The free key `123` has restricted daily results, and lineups appear when the provider has them |
-| 🏏 **BCCI schedule** | The published India–Sri Lanka 2026 series, included so it stays discoverable beyond the daily result limit |
-| ✍️ **Operator entries** | Admin-entered records that supplement the feed |
+**This reset script drops every collection in the configured database.** Use a
+disposable development database only; do not run it against production or any
+database containing data you need. Back up important data before any manual
+database changes.
 
-> [!TIP]
-> Set `SPORTSDB_API_KEY` in `backend/.env` to use your own key. Premium keys unlock broader schedules and the provider's live-score API.
+## Deployment
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:22D3EE,50:10B981,100:A3E635&height=4" width="100%" alt=""/>
+For the backend, set the production environment variables in the hosting
+provider and start Gunicorn from the `backend/` directory:
 
-## 🔌 API Reference
-
-### 🏃 Athletes, Sports and Contact
-
-| Method | Endpoint | Notes |
-|:-:|---|---|
-| ![GET](https://img.shields.io/badge/GET-00C853?style=flat-square) | `/api/athletes` | `?sport=` `?q=` `?featured=true` |
-| ![GET](https://img.shields.io/badge/GET-00C853?style=flat-square) | `/api/athletes/<slug or id>` | Single athlete |
-| ![GET](https://img.shields.io/badge/GET-00C853?style=flat-square) | `/api/sports` | All sports |
-| ![POST](https://img.shields.io/badge/POST-FF9100?style=flat-square) ![PUT](https://img.shields.io/badge/PUT-2979FF?style=flat-square) ![DELETE](https://img.shields.io/badge/DELETE-FF1744?style=flat-square) | `/api/athletes` | 🔐 needs header `X-Admin-Token` |
-| ![POST](https://img.shields.io/badge/POST-FF9100?style=flat-square) | `/api/contact` | `name`, `email`, `message` |
-
-### ⚽ Matches
-
-| Method | Endpoint | Notes |
-|:-:|---|---|
-| ![GET](https://img.shields.io/badge/GET-00C853?style=flat-square) | `/api/matches` | Filters: `q`, `date`, `status`, `sport` |
-| ![GET](https://img.shields.io/badge/GET-00C853?style=flat-square) | `/api/matches/<id>` | Single match |
-| ![POST](https://img.shields.io/badge/POST-FF9100?style=flat-square) | `/api/matches` | 🔐 `X-Admin-Token` |
-| ![PUT](https://img.shields.io/badge/PUT-2979FF?style=flat-square) | `/api/matches/<id>` | 🔐 `X-Admin-Token` |
-| ![DELETE](https://img.shields.io/badge/DELETE-FF1744?style=flat-square) | `/api/matches/<id>` | 🔐 `X-Admin-Token` |
-
-```http
-GET /api/matches?q=India%20vs%20Sri%20Lanka
-GET /api/matches?date=YYYY-MM-DD&status=live&sport=Cricket
-```
-
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:22D3EE,50:10B981,100:A3E635&height=4" width="100%" alt=""/>
-
-## 🔐 Admin Guide
-
-### ➕ Add an athlete
-
-```bash
-curl -X POST localhost:5000/api/athletes \
-  -H "Content-Type: application/json" \
-  -H "X-Admin-Token: YOUR_TOKEN" \
-  -d '{"name":"New Athlete","slug":"new-athlete","sport":"Tennis","medals":{"gold":1,"silver":0,"bronze":0}}'
-```
-
-### 🧹 Reset the database
-
-To intentionally replace all data and reload the sports list (with no starter athlete profiles), run from `backend/`:
-
-```bash
-python reset_database.py
-```
-
-> [!CAUTION]
-> This **drops every collection** in `MONGODB_DB` before recreating the sports, an empty athlete collection and an empty contact-message collection. It cannot be undone.
-
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:22D3EE,50:10B981,100:A3E635&height=4" width="100%" alt=""/>
-
-## 🌍 Deploy
-
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### 🐍 API
-**Render / Railway**
-
-```bash
+```sh
 gunicorn app:app
 ```
 
-- Set the `.env` values as environment variables
-- Put your site URL in `CORS_ORIGINS`
-
-</td>
-<td width="50%" valign="top">
-
-### ⚛️ Frontend
-**Netlify / Vercel**
-
-```bash
-npm run build
-```
-
-- Host the `dist/` folder
-- Set `VITE_API_URL` to your API URL
-
-</td>
-</tr>
-</table>
-
-<div align="center">
-
-### 🌟 Enjoying Podium? Drop a star and share it!
-
-<img src="https://capsule-render.vercel.app/api?type=rounded&color=0:A3E635,35:10B981,70:0F766E,100:020617&height=120&section=footer&text=Built%20with%20passion%20for%20sport&fontSize=22&fontColor=ffffff&fontAlign=50&fontAlignY=50&stroke=22D3EE&strokeWidth=2" alt="footer" width="100%"/>
-
-</div>
+For the frontend, run `npm run build` from `frontend/` and host the generated
+`dist/` directory. Set `VITE_API_URL` to the API origin and configure the
+backend's `CORS_ORIGINS` to include the frontend origin. Configure SPA fallback
+routing in the frontend host so direct visits to client-side routes serve
+`index.html`.
